@@ -1,0 +1,11 @@
+include ':FileDownload'
+include ':Basic'
+include ':HDialog'
+include ':Crash'
+include ':SuspendNetwork'
+include ':HVideo'
+include ':Permission'
+include ':Widgets'
+include ':Utils'
+include ':app'
+rootProject.name = "AndroidPool"

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="touch" format="boolean"/>
+    <!--横向进度条-->
+    <declare-styleable name="HProgressView">
+        <attr name="touch"/>
+        <!--进度背景颜色-->
+        <attr name="bg_color" format="color"/>
+        <!--进度颜色-->
+        <attr name="progress_color" format="color"/>
+        <!--预加载进度-->
+        <attr name="preview_color" format="color"/>
+        <!--是否预加载-->
+        <attr name="isPreview" format="boolean"/>
+        <!--进度高度-->
+        <attr name="progress_height" format="integer"/>
+        <attr name="progresstype" format="integer">
+            <flag name="DEFAULT" value="0"/>
+            <flag name="CIRCLE_STROKE" value="1"/>
+            <flag name="CIRCLE_FILL" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="NavigationLayoutView">
+        <attr name="lineBackgroundColor" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="hasLine" format="boolean"/>
+        <attr name="navigationHeight" format="dimension"/>
+        <attr name="navigationBackgroundColor" format="color"/>
+        <attr name="locationType" format="integer">
+            <flag name="TOP" value="1"/>
+            <flag name="BOTTOM" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ChoiceView">
+        <attr name="choiceTextColor" format="color"/>
+        <attr name="choiceTextSize" format="dimension"/>
+        <attr name="choiceItemHeight" format="dimension"/>
+        <attr name="choiceLimit" format="integer">
+            <enum name="LIMIT_3" value="3"/>
+            <enum name="LIMIT_5" value="5"/>
+            <enum name="LIMIT_7" value="7"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="DateChoiceView">
+        <attr name="choiceTextColor"/>
+        <attr name="choiceTextSize"/>
+        <attr name="choiceItemHeight"/>
+        <attr name="choiceLimit"/>
+        <attr name="shade" format="boolean"/>
+        <attr name="shade_bg" format="color"/>
+        <attr name="showUnit" format="boolean"/>
+        <attr name="dateType" format="integer">
+            <enum name="YEAR" value="0"/>
+            <enum name="YEAR_MONTH" value="1"/>
+            <enum name="YEAR_MONTH_DAY" value="2"/>
+            <enum name="YEAR_MONTH_DAY_HOUR_MINUTE" value="3"/>
+            <enum name="HOUR_MINUTE" value="4"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="LabelView">
+        <attr name="labelHorizontalPadding" format="dimension"/>
+        <attr name="labelVerticalPadding" format="dimension"/>
+        <attr name="labelVerticalMargin" format="dimension"/>
+        <attr name="labelHorizontalMargin" format="dimension"/>
+        <attr name="labelResource" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="LoadView">
+        <attr name="loadSize" format="dimension"/>
+        <attr name="loadColor" format="color"/>
+        <attr name="loadType" format="integer">
+            <enum name="other" value="0"/>
+            <enum name="asset" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="HEditText">
+        <attr name="searchSrc" format="reference"/>
+        <attr name="deleteSrc" format="reference"/>
+        <attr name="hType" format="integer">
+            <enum name="none" value="0"/>
+            <enum name="search" value="1"/>
+            <enum name="delete" value="2"/>
+            <enum name="both" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>

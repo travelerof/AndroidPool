@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProgressActivity">
+    <com.hyg.widgets.progress.HProgressView
+        android:id="@+id/progress_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progresstype="DEFAULT"
+        app:progress_height="10"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.hyg.widgets.progress.HProgressView
+            android:id="@+id/progress_circle_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:progresstype="CIRCLE_STROKE"
+            android:layout_marginTop="20dp"
+            app:touch="false"/>
+        <com.hyg.widgets.progress.HProgressView
+            android:id="@+id/progress_circle_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:progresstype="CIRCLE_FILL"
+            android:layout_marginTop="20dp"
+            app:touch="false"
+            app:isPreview="false"/>
+    </LinearLayout>
+
+
+</LinearLayout>

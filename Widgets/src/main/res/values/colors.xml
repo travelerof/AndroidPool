@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_color_line_background">#999999</color>
+    <color name="color_eeffffff">#eeffffff</color>
+    <color name="color_eeeeee">#eeeeee</color>
+    <color name="color_555555">#555555</color>
+    <color name="color_99ffffff">#99ffffff</color>
+    <color name="color_2D2A2E">#2D2A2E</color>
+    <color name="color_FFD866">#FFD866</color>
+</resources>
