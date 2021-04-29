@@ -42,5 +42,6 @@ dependencies {
     implementation project(path: ':Crash')
     implementation project(path: ':HVideo')
     implementation project(path: ':Basic')
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
 
 }
