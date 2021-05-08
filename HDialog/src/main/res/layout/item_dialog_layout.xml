@@ -4,25 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog_default_bg"
-    android:id="@+id/dialog_root_layout">
+    android:id="@+id/hdialog_root_layout">
     <TextView
-        android:id="@+id/dialog_title_tv"
+        android:id="@+id/hdialog_title_tv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_50"
         android:gravity="center"
         android:textSize="@dimen/textsize_16"
         android:text="标题"/>
     <View
-        android:id="@+id/dialog_title_line_view"
+        android:id="@+id/hdialog_title_line_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5"
         android:background="@color/color_eeeeee"/>
     <FrameLayout
-        android:id="@+id/dialog_message_layout"
+        android:id="@+id/hdialog_message_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/dialog_message_tv"
+            android:id="@+id/hdialog_message_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dimen_10"
@@ -32,28 +32,23 @@
             android:textSize="@dimen/textsize_14" />
     </FrameLayout>
     <View
-        android:id="@+id/dialog_bottom_line_view"
+        android:id="@+id/hdialog_bottom_line_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5"/>
     <LinearLayout
-        android:id="@+id/dialog_bottom_layout"
+        android:id="@+id/hdialog_bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_40"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/dialog_bottom_negation_tv"
+            android:id="@+id/hdialog_cancel_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="@dimen/textsize_14"/>
-        <View
-            android:id="@+id/dialog_bottom_positive_line"
-            android:layout_width="@dimen/dimen_0_5"
-            android:layout_height="match_parent"
-            android:background="@color/color_eeeeee"/>
         <TextView
-            android:id="@+id/dialog_bottom_positive_tv"
+            android:id="@+id/hdialog_finish_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

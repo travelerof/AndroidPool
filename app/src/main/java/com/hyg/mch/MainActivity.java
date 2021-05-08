@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.hyg.mch.dialog.DialogActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void init() {
         findViewById(R.id.main_progress).setOnClickListener(this);
+        findViewById(R.id.main_dialog_btn).setOnClickListener(this);
         findViewById(R.id.main_loadding).setOnClickListener(this);
         findViewById(R.id.main_permission_btn).setOnClickListener(this);
     }
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.main_progress:
                 intent.setClass(this,ProgressActivity.class);
+                break;
+            case R.id.main_dialog_btn:
+                intent.setClass(this, DialogActivity.class);
                 break;
             case R.id.main_loadding:
                 break;
