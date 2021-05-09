@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/hdialog_title_tv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_45"
         android:gravity="center"
         android:textSize="@dimen/textsize_16"
         android:text="标题"/>
@@ -16,7 +16,7 @@
         android:id="@+id/hdialog_title_line_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5"
-        android:background="@color/color_eeeeee"/>
+        android:background="@color/color_E5E5E5"/>
     <FrameLayout
         android:id="@+id/hdialog_message_layout"
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/hdialog_message_tv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_10"
             android:layout_marginBottom="@dimen/dimen_10"
             android:layout_marginLeft="@dimen/dimen_10"
@@ -34,7 +34,8 @@
     <View
         android:id="@+id/hdialog_bottom_line_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_0_5"/>
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/color_E5E5E5"/>
     <LinearLayout
         android:id="@+id/hdialog_bottom_layout"
         android:layout_width="match_parent"
@@ -46,13 +47,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/textsize_14"/>
+            android:textSize="@dimen/textsize_14"
+            android:textColor="@color/selector_negative_color"/>
+        <View
+            android:layout_width="@dimen/dimen_0_5"
+            android:layout_height="match_parent"
+            android:background="@color/color_E5E5E5"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_8"/>
         <TextView
             android:id="@+id/hdialog_finish_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/textsize_14"/>
+            android:textSize="@dimen/textsize_14"
+            android:textColor="@color/selector_positive_color"/>
     </LinearLayout>
 </LinearLayout>

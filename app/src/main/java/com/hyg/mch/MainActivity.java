@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.hyg.mch.dialog.DialogActivity;
+import com.hyg.mch.ui.CardActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.main_dialog_btn).setOnClickListener(this);
         findViewById(R.id.main_loadding).setOnClickListener(this);
         findViewById(R.id.main_permission_btn).setOnClickListener(this);
+        findViewById(R.id.main_card_btn).setOnClickListener(this);
     }
 
     @Override
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_loadding:
                 break;
             case R.id.main_permission_btn:
+                break;
+            case R.id.main_card_btn:
+                intent.setClass(this, CardActivity.class);
                 break;
         }
 

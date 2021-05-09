@@ -11,6 +11,10 @@ import android.view.View;
 final class BuilderOptions {
 
     public int width = -1;
+    public int height = -1;
+    /**
+     * 是否允许点击外部关闭
+     */
     public boolean isOutside;
     public CharSequence titleText;
     public OnTextListener mTitleTextListener;

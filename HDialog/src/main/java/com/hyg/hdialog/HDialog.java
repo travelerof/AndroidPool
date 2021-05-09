@@ -1,8 +1,6 @@
 package com.hyg.hdialog;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +16,6 @@ import androidx.annotation.NonNull;
  * @Desc
  */
 public class HDialog extends BaseDialog {
-    private Context mContext;
     private BuilderOptions mBuilderOptions;
     private View mRootView;
     private TextView mTvTitle;
@@ -41,13 +38,13 @@ public class HDialog extends BaseDialog {
     }
 
     private void init(Context context, BuilderOptions options) {
-        mContext = context;
         mBuilderOptions = options;
         mRootView = LayoutInflater.from(context).inflate(R.layout.item_dialog_layout, null);
         initView();
         setListener();
         initData();
         setContentView(mRootView);
+        setCanceledOnTouchOutside(mBuilderOptions.isOutside);
     }
 
     private void initView() {
@@ -82,6 +79,9 @@ public class HDialog extends BaseDialog {
     private void initData() {
         if (mBuilderOptions.width != -1) {
             width(mBuilderOptions.width);
+        }
+        if (mBuilderOptions.height != -1) {
+            height(mBuilderOptions.height);
         }
         initTitle();
         initMessage();
@@ -145,14 +145,14 @@ public class HDialog extends BaseDialog {
         }
     }
 
-    public void setTitle(CharSequence charSequence){
+    public void setTitle(CharSequence charSequence) {
         if (mBuilderOptions != null) {
             mBuilderOptions.titleText = charSequence;
             initTitle();
         }
     }
 
-    public void setMessage(CharSequence charSequence){
+    public void setMessage(CharSequence charSequence) {
         if (mBuilderOptions != null) {
             mBuilderOptions.messageText = charSequence;
             initMessage();
@@ -167,7 +167,17 @@ public class HDialog extends BaseDialog {
         public Builder(Context context) {
             mContext = context;
             mBuilderOptions = new BuilderOptions();
-//            int screenWidth =
+
+        }
+
+        public Builder width(int width) {
+            mBuilderOptions.width = width;
+            return this;
+        }
+
+        public Builder height(int height) {
+            mBuilderOptions.height = height;
+            return this;
         }
 
         public Builder theme(int themeId) {
@@ -196,6 +206,7 @@ public class HDialog extends BaseDialog {
 
         public Builder message(CharSequence charSequence, OnTextListener onTextListener) {
             mBuilderOptions.messageText = charSequence;
+            mBuilderOptions.mMessageTextListener = onTextListener;
             return this;
         }
 

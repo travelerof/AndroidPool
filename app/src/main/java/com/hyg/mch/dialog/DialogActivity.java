@@ -1,10 +1,11 @@
 package com.hyg.mch.dialog;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hyg.hdialog.BaseDialog;
 import com.hyg.hdialog.HDialog;
@@ -37,22 +38,23 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.dialog_custom_btn:
                 new HDialog.Builder(this)
-                        .title("测试", new OnTextListener() {
+                        .title("测试标题")
+                        .message("测试文本", new OnTextListener() {
                             @Override
                             public void onText(TextView textView) {
-
-                            }
-                        })
-                        .message("我的测试Message", new OnTextListener() {
-                            @Override
-                            public void onText(TextView textView) {
-
+                                textView.setGravity(Gravity.CENTER);
                             }
                         })
                         .finish("完成", new OnDialogClickListener() {
                             @Override
                             public void onClick(BaseDialog dialog, View v) {
-
+                                dialog.dismiss();
+                            }
+                        })
+                        .cancel("取消", new OnDialogClickListener() {
+                            @Override
+                            public void onClick(BaseDialog dialog, View v) {
+                                dialog.dismiss();
                             }
                         })
                         .create()

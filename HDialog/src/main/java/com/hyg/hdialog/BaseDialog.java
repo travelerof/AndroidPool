@@ -18,17 +18,20 @@ public class BaseDialog extends Dialog {
     private WindowManager.LayoutParams mParams;
 
     public BaseDialog(@NonNull Context context) {
-        super(context, R.style.HDialog);
+        this(context, R.style.HDialog);
     }
 
     public BaseDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         mWindow = getWindow();
         mParams = mWindow.getAttributes();
+        int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+        mParams.width = screenWidth / 3 * 2;
+        mParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
     }
 
     public void x(int x) {

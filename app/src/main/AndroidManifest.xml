@@ -16,8 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPool">
-        <activity android:name=".dialog.DialogActivity"></activity>
+        <activity android:name=".ui.CardActivity"></activity>
         <activity android:name=".ProgressActivity" />
+        <activity android:name=".dialog.DialogActivity"></activity>
         <activity android:name=".PermissionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
