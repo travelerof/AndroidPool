@@ -1,7 +1,9 @@
 package com.hyg.mch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.hyg.mch.dialog.DialogActivity;
 import com.hyg.mch.ui.CardActivity;
+import com.hyg.mch.video.VideoPlayActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.main_loadding).setOnClickListener(this);
         findViewById(R.id.main_permission_btn).setOnClickListener(this);
         findViewById(R.id.main_card_btn).setOnClickListener(this);
+        findViewById(R.id.main_video_btn).setOnClickListener(this);
+
     }
 
     @Override
@@ -45,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_card_btn:
                 intent.setClass(this, CardActivity.class);
+                break;
+            case R.id.main_video_btn:
+                intent.setClass(this, VideoPlayActivity.class);
                 break;
         }
 

@@ -9,3 +9,4 @@ include ':Widgets'
 include ':Utils'
 include ':app'
 rootProject.name = "AndroidPool"
+include ':HVideo-UI'

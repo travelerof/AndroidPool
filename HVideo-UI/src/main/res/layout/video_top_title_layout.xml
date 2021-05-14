@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/video_top_title_back_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dimen_5"
+        android:paddingRight="@dimen/dimen_5"
+        android:src="@drawable/ic_video_back"/>
+    <RelativeLayout
+        android:id="@+id/video_top_title_handle_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/video_top_title_info_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/textsize_14"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:text="第二种：利用定时器改变padding的值来起到跑马灯的效果，各个方向都可以，无第一种的要求，主要起到作用的为setPadding方法，在最后记得要关闭定时器！"
+        android:layout_toLeftOf="@id/video_top_title_handle_layout"
+        android:layout_toRightOf="@id/video_top_title_back_iv"/>
+</RelativeLayout>
