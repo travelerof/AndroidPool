@@ -1,6 +1,7 @@
 package com.hyg.hdialog;
 
 import android.content.DialogInterface;
+import android.view.Gravity;
 import android.view.View;
 
 /**
@@ -15,7 +16,9 @@ final class BuilderOptions {
     /**
      * 是否允许点击外部关闭
      */
-    public boolean isOutside;
+    public boolean isOutside = true;
+    public int gravity  = Gravity.CENTER;
+    public int background = R.drawable.shape_dialog_default_bg;
     public CharSequence titleText;
     public OnTextListener mTitleTextListener;
     public CharSequence messageText;

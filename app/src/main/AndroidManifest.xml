@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPool"
         android:usesCleartextTraffic="true">
-        <activity android:name=".video.VideoPlayActivity"></activity>
+        <activity android:name=".suspend.SuspendActivity"></activity>
+        <activity android:name=".video.VideoPlayActivity" />
         <activity android:name=".ui.CardActivity" />
         <activity android:name=".ProgressActivity" />
         <activity android:name=".dialog.DialogActivity" />

@@ -26,6 +26,7 @@ public class HDialog extends BaseDialog {
     private LinearLayout mBottomLayout;
     private TextView mTvCancel;
     private TextView mTvFinish;
+    private LinearLayout mRootLayout;
 
     public HDialog(@NonNull Context context, BuilderOptions options) {
         super(context);
@@ -45,9 +46,11 @@ public class HDialog extends BaseDialog {
         initData();
         setContentView(mRootView);
         setCanceledOnTouchOutside(mBuilderOptions.isOutside);
+        gravity(options.gravity);
     }
 
     private void initView() {
+        mRootLayout = mRootView.findViewById(R.id.hdialog_root_layout);
         mTvTitle = mRootView.findViewById(R.id.hdialog_title_tv);
         mTitleLine = mRootView.findViewById(R.id.hdialog_title_line_view);
         mMessageLayout = mRootView.findViewById(R.id.hdialog_message_layout);
@@ -56,6 +59,7 @@ public class HDialog extends BaseDialog {
         mBottomLayout = mRootView.findViewById(R.id.hdialog_bottom_layout);
         mTvCancel = mRootView.findViewById(R.id.hdialog_cancel_tv);
         mTvFinish = mRootView.findViewById(R.id.hdialog_finish_tv);
+        mRootLayout.setBackgroundResource(mBuilderOptions.background);
     }
 
     private void setListener() {
@@ -187,6 +191,12 @@ public class HDialog extends BaseDialog {
 
         public Builder outSide(boolean outSide) {
             mBuilderOptions.isOutside = outSide;
+            return this;
+        }
+
+
+        public Builder gravity(int gravity){
+            mBuilderOptions.gravity = gravity;
             return this;
         }
 
