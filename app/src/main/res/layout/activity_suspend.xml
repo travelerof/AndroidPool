@@ -16,4 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="隐藏"/>
+    <Button
+        android:id="@+id/suspend_log_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打印日值"/>
 </LinearLayout>

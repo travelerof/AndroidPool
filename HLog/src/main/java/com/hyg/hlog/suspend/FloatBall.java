@@ -7,17 +7,23 @@ import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.hyg.hdialog.HDialog;
 import com.hyg.hlog.R;
+import com.hyg.hlog.data.LogDataManager;
+import com.hyg.hlog.data.LogShowHelper;
 
 /**
  * @Author hanyonggang
@@ -38,6 +44,7 @@ public class FloatBall implements OnActivityListener {
     private HDialog mDialog;
     private int mScreenWidth;
     private int mScreenHeight;
+    private LogShowHelper mLogShowHelper;
 
     private FloatBall(@NonNull Context context, @NonNull BuilderOptions options) {
         mContext = context;
@@ -78,13 +85,15 @@ public class FloatBall implements OnActivityListener {
     }
 
     private void initDialog() {
-        View dialogView = LayoutInflater.from(mContext).inflate(R.layout.item_log_dialog_layout,null);
+        mLogShowHelper = new LogShowHelper(mContext);
         DisplayMetrics displayMetrics = mContext.getResources().getDisplayMetrics();
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,displayMetrics.heightPixels/3*2);
         mDialog = new HDialog.Builder(mContext)
                 .width(displayMetrics.widthPixels)
-                .height(displayMetrics.heightPixels/2)
+                .background(-1)
                 .gravity(Gravity.BOTTOM)
-                .view(dialogView)
+                .view(mLogShowHelper.getRootView())
+                .layoutParams(params)
                 .create();
     }
 
@@ -197,6 +206,7 @@ public class FloatBall implements OnActivityListener {
             mDialog.dismiss();
         }else {
             mDialog.show();
+            LogDataManager.getInstance().find("");
         }
 
     }

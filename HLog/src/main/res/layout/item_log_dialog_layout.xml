@@ -1,105 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shape_log_dialog">
+    android:background="@drawable/shape_log_dialog"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/log_info_choice_rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/log_info_choice_verbose_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Verbose"
+            android:textColor="@color/selector_log_choice"
+            android:textSize="@dimen/textsize_12"
+            android:checked="true"/>
+
+        <View
+            android:layout_width="@dimen/dimen_0_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@color/color_777777" />
+
+        <RadioButton
+            android:id="@+id/log_info_choice_debug_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Debug"
+            android:textColor="@color/selector_log_choice"
+            android:textSize="@dimen/textsize_12" />
+
+        <View
+            android:layout_width="@dimen/dimen_0_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@color/color_777777" />
+
+        <RadioButton
+            android:id="@+id/log_info_choice_info_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Info"
+            android:textColor="@color/selector_log_choice"
+            android:textSize="@dimen/textsize_12" />
+
+        <View
+            android:layout_width="@dimen/dimen_0_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@color/color_777777" />
+
+        <RadioButton
+            android:id="@+id/log_info_choice_warn_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Warn"
+            android:textColor="@color/selector_log_choice"
+            android:textSize="@dimen/textsize_12" />
+
+        <View
+            android:layout_width="@dimen/dimen_0_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@color/color_777777" />
+
+        <RadioButton
+            android:id="@+id/log_info_choice_error_rb"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Error"
+            android:textColor="@color/selector_log_choice"
+            android:textSize="@dimen/textsize_12" />
+    </RadioGroup>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/color_777777" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_40"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:textColor="#555555"
-                android:gravity="center"
-                android:button="@null"
-                android:text="Verbose"/>
-            <View
-                android:layout_width="@dimen/dimen_0_5"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:layout_marginBottom="@dimen/dimen_10"
-                android:background="@color/color_777777"/>
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:textColor="#555555"
-                android:gravity="center"
-                android:button="@null"
-                android:text="Verbose"/>
-            <View
-                android:layout_width="@dimen/dimen_0_5"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:layout_marginBottom="@dimen/dimen_10"
-                android:background="@color/color_777777"/>
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:textColor="#555555"
-                android:gravity="center"
-                android:button="@null"
-                android:text="Verbose"/>
-            <View
-                android:layout_width="@dimen/dimen_0_5"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:layout_marginBottom="@dimen/dimen_10"
-                android:background="@color/color_777777"/>
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:textColor="#555555"
-                android:gravity="center"
-                android:button="@null"
-                android:text="Verbose"/>
-            <View
-                android:layout_width="@dimen/dimen_0_5"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:layout_marginBottom="@dimen/dimen_10"
-                android:background="@color/color_777777"/>
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:textColor="#555555"
-                android:gravity="center"
-                android:button="@null"
-                android:text="Verbose"/>
-        </RadioGroup>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_0_5"
-            android:background="@color/color_777777"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_40"
-            android:orientation="horizontal">
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/textsize_12"
-                android:hint="输入内容过滤"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="@dimen/dimen_40"
+        android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/log_info_search_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="输入内容过滤"
+            android:textSize="@dimen/textsize_12"
+            android:background="@drawable/shape_log_edit"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginBottom="@dimen/dimen_5"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:singleLine="true"
+            android:drawableLeft="@mipmap/ic_log_search"
+            android:drawablePadding="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"/>
+
+        <TextView
+            android:id="@+id/log_info_search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/textsize_12"
+            android:textColor="@color/color_777777"
+            android:text="搜索"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_10"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/log_info_clear_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/textsize_12"
+            android:textColor="@color/color_777777"
+            android:text="清除"
+            android:gravity="center"
+            android:paddingRight="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_10"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0_5"
+        android:background="@color/color_777777"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/log_info_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.hyg.hdialog;
 import android.content.DialogInterface;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.FrameLayout;
 
 /**
  * @Author 韩永刚
@@ -34,4 +35,5 @@ final class BuilderOptions {
     public DialogInterface.OnCancelListener mOnCancelListener;
 
     public View view;
+    public FrameLayout.LayoutParams mLayoutParams;
 }

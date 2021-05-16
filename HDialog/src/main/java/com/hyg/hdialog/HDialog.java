@@ -40,13 +40,13 @@ public class HDialog extends BaseDialog {
 
     private void init(Context context, BuilderOptions options) {
         mBuilderOptions = options;
+        gravity(options.gravity);
+        setCanceledOnTouchOutside(mBuilderOptions.isOutside);
         mRootView = LayoutInflater.from(context).inflate(R.layout.item_dialog_layout, null);
         initView();
         setListener();
         initData();
         setContentView(mRootView);
-        setCanceledOnTouchOutside(mBuilderOptions.isOutside);
-        gravity(options.gravity);
     }
 
     private void initView() {
@@ -59,7 +59,9 @@ public class HDialog extends BaseDialog {
         mBottomLayout = mRootView.findViewById(R.id.hdialog_bottom_layout);
         mTvCancel = mRootView.findViewById(R.id.hdialog_cancel_tv);
         mTvFinish = mRootView.findViewById(R.id.hdialog_finish_tv);
-        mRootLayout.setBackgroundResource(mBuilderOptions.background);
+        if (mBuilderOptions.background >= 0){
+            mRootLayout.setBackgroundResource(mBuilderOptions.background);
+        }
     }
 
     private void setListener() {
@@ -92,7 +94,11 @@ public class HDialog extends BaseDialog {
         View view = mBuilderOptions.view;
         if (view != null) {
             mTvMessage.setVisibility(View.GONE);
-            mMessageLayout.addView(view);
+            if (mBuilderOptions.mLayoutParams != null) {
+                mMessageLayout.addView(view,mBuilderOptions.mLayoutParams);
+            }else {
+                mMessageLayout.addView(view);
+            }
         }
         initBottomLayout();
     }
@@ -150,14 +156,14 @@ public class HDialog extends BaseDialog {
     }
 
     public void setTitle(CharSequence charSequence) {
-        if (mBuilderOptions != null) {
+        if (mBuilderOptions != null && mTvTitle != null) {
             mBuilderOptions.titleText = charSequence;
             initTitle();
         }
     }
 
     public void setMessage(CharSequence charSequence) {
-        if (mBuilderOptions != null) {
+        if (mBuilderOptions != null && mTvMessage != null) {
             mBuilderOptions.messageText = charSequence;
             initMessage();
         }
@@ -194,7 +200,10 @@ public class HDialog extends BaseDialog {
             return this;
         }
 
-
+        public Builder background(int backgroundResId){
+            mBuilderOptions.background = backgroundResId;
+            return this;
+        }
         public Builder gravity(int gravity){
             mBuilderOptions.gravity = gravity;
             return this;
@@ -230,6 +239,10 @@ public class HDialog extends BaseDialog {
             return view(LayoutInflater.from(mContext).inflate(resId, null));
         }
 
+        public Builder layoutParams(FrameLayout.LayoutParams params){
+            mBuilderOptions.mLayoutParams = params;
+            return this;
+        }
         public Builder finish(CharSequence charSequence, OnDialogClickListener onDialogClickListener) {
             return finish(charSequence, null, onDialogClickListener);
         }

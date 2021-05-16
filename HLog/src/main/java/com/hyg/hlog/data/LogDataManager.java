@@ -44,6 +44,12 @@ public class LogDataManager {
 
     public void add(@Nullable LogModel model) {
         mLogs.add(model);
+        if (mListeners.isEmpty()) {
+            return;
+        }
+        for (OnLogChangedListener listener : mListeners) {
+            listener.onChanged(mLogs);
+        }
     }
 
     public void clear() {
@@ -52,12 +58,18 @@ public class LogDataManager {
 
     public void find(String keyword) {
 
-        mExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        });
+//        mExecutor.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        });
+        if (mListeners.isEmpty()) {
+            return;
+        }
+        for (OnLogChangedListener listener : mListeners) {
+            listener.onChanged(mLogs);
+        }
     }
 
     public void addListener(OnLogChangedListener onLogChangedListener) {

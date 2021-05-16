@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/adapter_log_tag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textsize_10"
+        android:textColor="@color/color_777777"/>
+    <TextView
+        android:id="@+id/adapter_log_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textsize_12"
+        android:textColor="@color/color_777777"
+        android:layout_marginLeft="@dimen/dimen_10"/>
+</LinearLayout>

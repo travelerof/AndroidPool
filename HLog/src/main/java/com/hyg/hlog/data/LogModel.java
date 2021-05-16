@@ -5,7 +5,7 @@ package com.hyg.hlog.data;
  * @Date 2021/05/14
  * @Desc
  */
-class LogModel {
+public class LogModel {
     //日志等级
     private int priority;
     private String tag;
