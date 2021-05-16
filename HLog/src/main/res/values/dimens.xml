@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textsize_12">12sp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
     <dimen name="dimen_50">50dp</dimen>
     <dimen name="dimen_200">200dp</dimen>
 </resources>
