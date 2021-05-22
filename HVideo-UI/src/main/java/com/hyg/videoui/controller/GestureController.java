@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @Author hanyonggang
- * @Date 2021/5/12 0012
+ * @Date 2021/5/12
  * @Desc
  */
 public class GestureController extends AbstractController {
@@ -36,6 +36,11 @@ public class GestureController extends AbstractController {
         @Override
         public boolean onDoubleTap(MotionEvent e) {
             return super.onDoubleTap(e);
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            return super.onScroll(e1, e2, distanceX, distanceY);
         }
     };
     private GestureDetector mGestureDetector;

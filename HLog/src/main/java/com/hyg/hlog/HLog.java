@@ -2,9 +2,6 @@ package com.hyg.hlog;
 
 import android.util.Log;
 
-import com.hyg.hlog.print.IPrinter;
-import com.hyg.hlog.print.Printer;
-
 /**
  * @Author 韩永刚
  * @Date 2021/05/14
@@ -13,11 +10,19 @@ import com.hyg.hlog.print.Printer;
 public final class HLog {
 
     private static boolean debug = false;
-    private static final IPrinter mIPrinter = new Printer();
+    private static IPrinter iPrinter;
+
     private static final Object LOCK = new Object();
 
     public static void debug(boolean debug) {
+        debug(debug, null);
+    }
+
+    public static void debug(boolean debug, IPrinter printer) {
         HLog.debug = debug;
+        if (debug) {
+            HLog.iPrinter = printer;
+        }
     }
 
     public static int i(String tag, String message) {
@@ -62,7 +67,7 @@ public final class HLog {
 
     public static int json(String tag, String message) {
 
-        return w(tag,message);
+        return w(tag, message);
     }
 
     public static int println(int priority, String tag, String message, Throwable tr) {
@@ -71,7 +76,10 @@ public final class HLog {
         }
         synchronized (LOCK) {
             message += "\n" + Log.getStackTraceString(tr);
-            return mIPrinter.println(priority, tag, message);
+            if (iPrinter != null) {
+                iPrinter.println(priority, tag, message);
+            }
+            return Log.println(priority, tag, message);
         }
 
     }

@@ -20,7 +20,7 @@ public class VideoPlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_play);
         HVideoView videoView = findViewById(R.id.video_view_v);
         HVideoSource hVideoSource = new HVideoSource();
-        hVideoSource.setUri(Uri.parse("android.resource://com.hyg.mch/test.mp4"));
+        hVideoSource.setUri(Uri.parse("https://media.w3.org/2010/05/sintel/trailer.mp4"));
         videoView.setVideoSource(hVideoSource);
     }
 }

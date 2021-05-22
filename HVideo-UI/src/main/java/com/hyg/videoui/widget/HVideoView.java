@@ -23,6 +23,7 @@ import com.hyg.hvideo.model.PlayInfo;
 import com.hyg.videoui.Direction;
 import com.hyg.videoui.HConstant;
 import com.hyg.videoui.R;
+import com.hyg.videoui.controller.AbstractController;
 import com.hyg.videoui.controller.AnimationControllerHelper;
 import com.hyg.videoui.controller.BottomFuncController;
 import com.hyg.videoui.controller.GestureController;
@@ -58,7 +59,7 @@ public class HVideoView extends FrameLayout implements InteractiveHandler, OnMed
 
     private AnimationControllerHelper mAnimationControllerHelper;
     private GestureController mGestureController;
-    private LoaddingController mLoaddingController;
+    private AbstractController mLoaddingController;
     private TouchProgressController mTouchProgressController;
 
 

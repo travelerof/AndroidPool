@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hyg.hlog">
-    <application>
-        <provider
-            android:authorities="com.hyg.hlog.suspend.IniterLogProvider"
-            android:name=".suspend.IniterLogProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/log_provider_path"/>
-        </provider>
-    </application>
 </manifest>

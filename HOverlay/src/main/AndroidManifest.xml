@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hyg.overlay">
+    <!--悬浮窗全选-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <application>
+        <provider
+            android:name=".RegisterLifecycleProvider"
+            android:authorities="com.hyg.overlay.RegisterLifecycleProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/log_provider_path" />
+        </provider>
+    </application>
+</manifest>

@@ -1,18 +1,11 @@
 package com.hyg.mch;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.hyg.hlog.HLog;
-import com.hyg.hlog.suspend.FloatBall;
 import com.hyg.mch.dialog.DialogActivity;
 import com.hyg.mch.suspend.SuspendActivity;
 import com.hyg.mch.ui.CardActivity;
@@ -52,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_loadding:
                 break;
             case R.id.main_permission_btn:
+                Intent intent6 = new Intent(this,PermissionActivity.class);
+                startActivity(intent6);
                 break;
             case R.id.main_card_btn:
                 Intent intent3 = new Intent(this, CardActivity.class);

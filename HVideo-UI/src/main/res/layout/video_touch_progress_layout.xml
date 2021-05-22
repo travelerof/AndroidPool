@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:visibility="gone">
+    android:visibility="gone"
+    tools:visibility="visible"
+    tools:background="@color/black">
     <ImageView
         android:id="@+id/video_touch_progress_preview_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="@dimen/dimen_100"
-        android:maxHeight="@dimen/dimen_55"
-        android:background="#000000"/>
+        android:maxHeight="@dimen/dimen_55" />
     <TextView
         android:id="@+id/video_touch_progress_time_tv"
         android:layout_width="wrap_content"
@@ -20,5 +22,5 @@
         android:textColor="@color/white"
         android:text="11:33"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/dimen_10"/>
+        android:layout_marginTop="@dimen/dimen_10" />
 </LinearLayout>
