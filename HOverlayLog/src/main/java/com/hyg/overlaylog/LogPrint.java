@@ -1,6 +1,10 @@
 package com.hyg.overlaylog;
 
+import android.util.Log;
+
 import com.hyg.hlog.IPrinter;
+import com.hyg.overlaylog.log.LogDataManager;
+import com.hyg.overlaylog.log.LogModel;
 
 /**
  * @Author hanyonggang
@@ -10,6 +14,10 @@ import com.hyg.hlog.IPrinter;
 class LogPrint implements IPrinter {
     @Override
     public void println(int priority, String tag, String message) {
-
+        LogModel model = new LogModel();
+        model.priority = priority;
+        model.tag = tag;
+        model.message = message;
+        LogDataManager.getInstance().add(model);
     }
 }
