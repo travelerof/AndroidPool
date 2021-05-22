@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="color_333333">#333333</color>
     <color name="color_verbose">#3700B3</color>
     <color name="color_debug">#3700b3</color>
     <color name="color_info">#3700B3</color>
