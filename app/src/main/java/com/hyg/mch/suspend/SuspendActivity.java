@@ -12,12 +12,15 @@ import androidx.lifecycle.Observer;
 import com.hyg.hlog.HLog;
 import com.hyg.mch.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SuspendActivity extends AppCompatActivity {
 
-    private MutableLiveData<List<String>> mLiveData = new MutableLiveData<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,39 +29,53 @@ public class SuspendActivity extends AppCompatActivity {
         findViewById(R.id.suspend_show_btn).setOnClickListener(this::onClick);
         findViewById(R.id.suspend_hide_btn).setOnClickListener(this::onClick);
         findViewById(R.id.suspend_log_btn).setOnClickListener(this::onClick);
-        mLiveData.observeForever(new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> strings) {
-                Log.i("tset","====结果==="+strings.size());
-            }
-        });
     }
 
     private void onClick(View v) {
         int id = v.getId();
         if (id == R.id.suspend_show_btn) {
-            mLiveData.setValue(getStrings());
         } else if (id == R.id.suspend_hide_btn) {
-            List<String> value = mLiveData.getValue();
-            if (value != null) {
-                Log.i("tset","====获取==="+value.size());
-            }
         } else if (id == R.id.suspend_log_btn) {
-            HLog.i("test11","=======12==========");
-            HLog.i("test11","=======123==========");
-            HLog.i("test11","wrfw");
-            HLog.i("test11","========fd=========");
-            HLog.e("test11","=========dfsdf========");
+            HLog.i("test","=======12==========");
+            HLog.i("test","=======123==========");
+            HLog.i("test","wrfw");
+            HLog.i("test","========fd=========");
+            HLog.e("test","=========dfsdf========");
+            HLog.w("test","=========dfsdf========");
+            HLog.w("test","=========dfsdf========");
+            HLog.v("test","=========dfsdf========");
+            HLog.v("test","=========dfsdf========");
+            HLog.json("test",getObject());
+            HLog.json("test",getArray());
         }
     }
 
-    private List<String> getStrings(){
-        List<String> data = new ArrayList<>();
-        int count = (int) (Math.random()*10);
-        for (int i = 0; i < count; i++) {
-            data.add("测试");
+    private String getObject(){
+        JSONObject object = new JSONObject();
+        try {
+            object.put("name","张三");
+            object.put("age",18);
+            object.put("address","西安市");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        Log.i("tset","====组装==="+data.size());
-        return data;
+        return object.toString();
     }
+
+    private String getArray(){
+        JSONArray array = new JSONArray();
+        try {
+            for (int i = 0; i < 3; i++) {
+                JSONObject object = new JSONObject();
+                object.put("name","张三");
+                object.put("age",18);
+                object.put("address","西安市");
+                array.put(object);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return array.toString();
+    }
+
 }

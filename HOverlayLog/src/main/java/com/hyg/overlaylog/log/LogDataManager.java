@@ -1,8 +1,12 @@
 package com.hyg.overlaylog.log;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+
+import com.hyg.overlaylog.filter.LogFilter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,9 +26,11 @@ public class LogDataManager {
     public static final int MAX_SIZE = 500;
     public static LogDataManager manager = new LogDataManager();
     private List<LogModel> logData;
+    private LogFilter mLogFilter;
 
     private LogDataManager() {
         logData = new ArrayList<>();
+        mLogFilter = new LogFilter();
     }
 
     public static LogDataManager getInstance() {
@@ -34,14 +40,33 @@ public class LogDataManager {
     public void add(@NonNull LogModel model) {
         checked();
         logData.add(model);
-
+        mLogFilter.filter();
     }
-    public List<LogModel> getLogData(){
+
+    /**
+     * 设置观察者
+     *
+     * @param observer
+     */
+    public void addObserve(Observer<List<LogModel>> observer) {
+        mLogFilter.addObserve(observer);
+    }
+
+    public void setKeyword(String keyword) {
+        mLogFilter.setKeyword(keyword);
+    }
+
+    public void setPriority(int priority) {
+        mLogFilter.setPriority(priority);
+    }
+
+    public List<LogModel> getLogData() {
         return logData;
     }
 
     public void clear() {
         logData.clear();
+        mLogFilter.filter();
     }
 
     /**

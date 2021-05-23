@@ -23,6 +23,6 @@
         android:id="@+id/adapter_log_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_5"
-        android:background="@color/color_AAAAAA"
+        android:background="@color/color_e5e5e5"
         android:layout_marginTop="@dimen/dimen_5"/>
 </LinearLayout>

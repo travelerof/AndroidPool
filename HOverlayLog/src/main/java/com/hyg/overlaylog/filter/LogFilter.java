@@ -34,22 +34,18 @@ public final class LogFilter extends Filter {
 
     /**
      * 设置观察者
+     *
      * @param observer
      */
-    public void addObserve(Observer<List<LogModel>> observer){
+    public void addObserve(Observer<List<LogModel>> observer) {
         mLiveData.observeForever(observer);
     }
 
     /**
      * 开启过滤
      */
-    private void filter(){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                filter();
-            }
-        },50);
+    public void filter() {
+        new Handler().postDelayed(() -> filter(), 50);
         filter(null);
     }
 
@@ -68,7 +64,7 @@ public final class LogFilter extends Filter {
      *
      * @param keyword
      */
-    public void setKeyword(String keyword){
+    public void setKeyword(String keyword) {
         mKeywordFilter.setKeyword(keyword);
         filter();
     }
@@ -88,7 +84,7 @@ public final class LogFilter extends Filter {
         try {
             List<LogModel> list = (List<LogModel>) results.values;
             mLiveData.postValue(list);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
