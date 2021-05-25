@@ -1,0 +1,29 @@
+apply plugin: 'maven'
+afterEvaluate {module ->
+    //打包main目录下代码和资源的task
+    task androidSourceJar(type:Jar){
+        classifier("sources")
+        from android.sourceSets.main.java.srcDirs
+    }
+    //配置需要上传到maven的文件
+    artifacts{
+        archives androidSourceJar
+    }
+
+    //上传到maven仓
+    uploadArchives{
+        repositories{
+            mavenDeployer{
+                pom.project{
+                    version '0.0.1'
+                    artifactId 'permission'
+                    groupId 'com.hyg.hpermission'
+                    packaging 'aar'
+                }
+                repository(url:rootProject.ext.upload.url){
+                    authentication(userName:rootProject.ext.upload.username,password:rootProject.ext.upload.password)
+                }
+            }
+        }
+    }
+}

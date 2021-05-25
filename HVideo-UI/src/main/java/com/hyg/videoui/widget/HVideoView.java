@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.hyg.hlog.HLog;
 import com.hyg.hvideo.HVideoConstant;
-import com.hyg.hvideo.HVideoLog;
 import com.hyg.hvideo.HVideoPlayer;
 import com.hyg.hvideo.HVideoSource;
 import com.hyg.hvideo.OnMediaErrorListener;
@@ -31,7 +31,6 @@ import com.hyg.videoui.controller.LoaddingController;
 import com.hyg.videoui.controller.OnGestureListener;
 import com.hyg.videoui.controller.TopTitleController;
 import com.hyg.videoui.controller.TouchProgressController;
-import com.hyg.videoui.utils.HVideoUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -247,7 +246,7 @@ public class HVideoView extends FrameLayout implements InteractiveHandler, OnMed
 
     @Override
     public void onPlayInfo(@NonNull @NotNull PlayInfo playInfo) {
-        HVideoLog.i(TAG,">>>>>>>>>onPlayInfo>>>>>>>>>>code:"+playInfo.code);
+        HLog.i(TAG,">>>>>>>>>onPlayInfo>>>>>>>>>>code:"+playInfo.code);
         switch (playInfo.code) {
             case HVideoConstant.STATUS.PREPARE_START:
                 mLoaddingController.operate(HConstant.PREPARE_START);

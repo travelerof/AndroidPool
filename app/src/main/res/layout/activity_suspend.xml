@@ -21,4 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="打印日值"/>
+    <TextView
+        android:layout_width="5dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_test_line"
+        android:layerType="software"/>
 </LinearLayout>

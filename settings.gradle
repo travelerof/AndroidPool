@@ -1,8 +1,6 @@
-include ':FileDownload'
 include ':Basic'
 include ':HDialog'
 include ':Crash'
-include ':SuspendNetwork'
 include ':HVideo'
 include ':Widgets'
 include ':Utils'

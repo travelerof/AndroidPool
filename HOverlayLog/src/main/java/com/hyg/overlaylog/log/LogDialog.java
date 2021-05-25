@@ -50,7 +50,7 @@ public class LogDialog extends Dialog {
     private boolean isPriorityAnimator;
 
     public LogDialog(@NonNull Context context) {
-        super(context,R.style.HDialog);
+        super(context,R.style.LogDialog);
         setCanceledOnTouchOutside(true);
         init(context);
     }

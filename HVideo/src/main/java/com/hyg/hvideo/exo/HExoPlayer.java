@@ -27,10 +27,9 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.util.Clock;
-import com.google.android.exoplayer2.video.MediaCodecVideoRenderer;
 import com.google.android.exoplayer2.video.VideoListener;
+import com.hyg.hlog.HLog;
 import com.hyg.hvideo.HVideoConstant;
-import com.hyg.hvideo.HVideoLog;
 import com.hyg.hvideo.HVideoPlayer;
 import com.hyg.hvideo.HVideoSource;
 import com.hyg.hvideo.model.Error;
@@ -64,34 +63,34 @@ public class HExoPlayer extends HVideoPlayer implements VideoListener, Player.Ev
     private MediaSourceEventListener mMediaSourceEventListener = new MediaSourceEventListener() {
         @Override
         public void onLoadStarted(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData) {
-            HVideoLog.i(TAG,">>>>onLoadStarted>>>>:");
+            HLog.i(TAG,">>>>onLoadStarted>>>>:");
         }
 
         @Override
         public void onLoadCompleted(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData) {
-            HVideoLog.i(TAG,">>>>onLoadCompleted>>>>:");
+            HLog.i(TAG,">>>>onLoadCompleted>>>>:");
         }
 
         @Override
         public void onLoadCanceled(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData) {
-            HVideoLog.i(TAG,">>>>onLoadCanceled>>>>:");
+            HLog.i(TAG,">>>>onLoadCanceled>>>>:");
         }
 
         @Override
         public void onLoadError(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, LoadEventInfo loadEventInfo, MediaLoadData mediaLoadData, IOException error, boolean wasCanceled) {
-            HVideoLog.i(TAG,">>>>onLoadError>>>>:");
+            HLog.i(TAG,">>>>onLoadError>>>>:");
             setError(new Error(HVideoConstant.ERROR.VIDEO_PREPARE_FAILED,"视频准备失败"));
             isPreparing = false;
         }
 
         @Override
         public void onUpstreamDiscarded(int windowIndex, MediaSource.MediaPeriodId mediaPeriodId, MediaLoadData mediaLoadData) {
-            HVideoLog.i(TAG,">>>>onUpstreamDiscarded>>>>:");
+            HLog.i(TAG,">>>>onUpstreamDiscarded>>>>:");
         }
 
         @Override
         public void onDownstreamFormatChanged(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, MediaLoadData mediaLoadData) {
-            HVideoLog.i(TAG,">>>>onDownstreamFormatChanged>>>>:");
+            HLog.i(TAG,">>>>onDownstreamFormatChanged>>>>:");
             isPreparing = false;
             setInfo(new PlayInfo(HVideoConstant.STATUS.PREPARE_COMPLETE));
         }
@@ -162,27 +161,27 @@ public class HExoPlayer extends HVideoPlayer implements VideoListener, Player.Ev
             mediaSource.addDrmEventListener(handler, new DrmSessionEventListener() {
                 @Override
                 public void onDrmSessionAcquired(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId) {
-                    HVideoLog.i(TAG,">>>>>>>>>onDrmSessionAcquired>>>>");
+                    HLog.i(TAG,">>>>>>>>>onDrmSessionAcquired>>>>");
                 }
 
                 @Override
                 public void onDrmKeysLoaded(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId) {
-                    HVideoLog.i(TAG,">>>>>>>>>onDrmKeysLoaded>>>>");
+                    HLog.i(TAG,">>>>>>>>>onDrmKeysLoaded>>>>");
                 }
 
                 @Override
                 public void onDrmSessionManagerError(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId, Exception error) {
-                    HVideoLog.i(TAG,">>>>>>>>>onDrmSessionManagerError>>>>");
+                    HLog.i(TAG,">>>>>>>>>onDrmSessionManagerError>>>>");
                 }
 
                 @Override
                 public void onDrmKeysRestored(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId) {
-                    HVideoLog.i(TAG,">>>>>>>>>onDrmKeysRestored>>>>");
+                    HLog.i(TAG,">>>>>>>>>onDrmKeysRestored>>>>");
                 }
 
                 @Override
                 public void onDrmKeysRemoved(int windowIndex, @Nullable @org.jetbrains.annotations.Nullable MediaSource.MediaPeriodId mediaPeriodId) {
-                    HVideoLog.i(TAG,">>>>>>>>>onDrmKeysRemoved>>>>");
+                    HLog.i(TAG,">>>>>>>>>onDrmKeysRemoved>>>>");
                 }
 
                 @Override
@@ -292,7 +291,7 @@ public class HExoPlayer extends HVideoPlayer implements VideoListener, Player.Ev
 
     @Override
     public void onPlaybackStateChanged(int state) {
-        HVideoLog.i(TAG,">>>>onPlaybackStateChanged>>>>:state="+state);
+        HLog.i(TAG,">>>>onPlaybackStateChanged>>>>:state="+state);
         if (isPreparing) {
             return;
         }
@@ -310,17 +309,17 @@ public class HExoPlayer extends HVideoPlayer implements VideoListener, Player.Ev
 
     @Override
     public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-        HVideoLog.i(TAG,">>>>onVideoSizeChanged>>>>:");
+        HLog.i(TAG,">>>>onVideoSizeChanged>>>>:");
     }
 
     @Override
     public void onSurfaceSizeChanged(int width, int height) {
-        HVideoLog.i(TAG,">>>>onSurfaceSizeChanged>>>>:");
+        HLog.i(TAG,">>>>onSurfaceSizeChanged>>>>:");
     }
 
     @Override
     public void onRenderedFirstFrame() {
-        HVideoLog.i(TAG,">>>>onRenderedFirstFrame>>>>:");
+        HLog.i(TAG,">>>>onRenderedFirstFrame>>>>:");
     }
 
     public void setRenderersFactory(RenderersFactory renderersFactory) {

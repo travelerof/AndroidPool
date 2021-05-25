@@ -39,4 +39,5 @@ dependencies {
     implementation project(path: ':Utils')
     implementation project(path: ':HVideo')
     implementation project(path: ':Widgets')
+    implementation 'com.hyg.hlog:log:0.0.1'
 }

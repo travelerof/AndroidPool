@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.library'
 }
-
+apply from:'upload.gradle'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -36,6 +36,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation project(path: ':HLog')
-    implementation project(path: ':HOverlay')
+    implementation 'com.hyg.hlog:log:0.0.1'
+    implementation 'com.hyg.overlay:overlay:0.0.1'
 }

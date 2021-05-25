@@ -39,14 +39,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':Utils')
     implementation project(path: ':Widgets')
-    implementation project(path: ':HPermission')
+
     implementation project(path: ':Crash')
     implementation project(path: ':HVideo')
     implementation project(path: ':Basic')
-    implementation project(path: ':HDialog')
+    implementation 'com.hyg.hdialog:dialog:0.0.1'
     implementation project(path: ':HVideo-UI')
-    implementation project(path: ':HLog')
-    implementation project(path: ':HOverlayLog')
+    implementation 'com.hyg.hpermission:permission:0.0.1'
+    implementation 'com.hyg.hlog:log:0.0.1'
+    implementation 'com.hyg.overlaylog:overlaylog:0.0.1'
     implementation 'com.github.bumptech.glide:glide:4.5.0'
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
 

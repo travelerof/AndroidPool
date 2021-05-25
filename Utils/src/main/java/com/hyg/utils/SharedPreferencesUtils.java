@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import com.hyg.hlog.HLog;
 import com.hyg.utils.encrypt.AESUtils;
 
 import java.util.HashSet;

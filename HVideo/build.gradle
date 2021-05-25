@@ -40,4 +40,5 @@ dependencies {
     implementation project(path: ':Widgets')
     implementation 'com.google.android.exoplayer:exoplayer:2.13.2'
     implementation project(path: ':Basic')
+    implementation 'com.hyg.hlog:log:0.0.1'
 }

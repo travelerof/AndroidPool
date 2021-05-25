@@ -5,7 +5,6 @@ import android.widget.SeekBar;
 
 import androidx.annotation.NonNull;
 
-import com.hyg.hvideo.HVideoLog;
 import com.hyg.videoui.HConstant;
 import com.hyg.videoui.utils.HVideoUtils;
 import com.hyg.videoui.widget.InteractiveHandler;

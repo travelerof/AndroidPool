@@ -3,17 +3,15 @@ package com.hyg.videoui.controller;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Chronometer;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
-import com.hyg.hvideo.HVideoLog;
+import com.hyg.hlog.HLog;
 import com.hyg.videoui.AnimationStatus;
 import com.hyg.videoui.Direction;
 import com.hyg.videoui.HConstant;
 import com.hyg.videoui.R;
-import com.hyg.videoui.utils.HVideoUtils;
 import com.hyg.videoui.widget.InteractiveHandler;
 
 import org.jetbrains.annotations.NotNull;
@@ -95,7 +93,7 @@ public class BottomFuncController extends AbstractAnimationController {
 
     @Override
     public void operate(int code) {
-        HVideoLog.i(TAG,"================code=========="+code);
+        HLog.i(TAG,"================code=========="+code);
         switch (code){
             case HConstant.PREPARE_START:
                 startTimer();

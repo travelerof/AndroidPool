@@ -1,4 +1,10 @@
 ext {
+
+    upload = [
+            url     : 'http://127.0.0.1:8081/repository/maven-releases/',
+            username: 'admin',
+            password: 'mch1314'
+    ]
     android = [
             compileSdkVersion: 30,
             buildToolsVersion: '30.0.3',
