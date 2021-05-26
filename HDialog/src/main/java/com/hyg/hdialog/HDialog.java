@@ -41,6 +41,7 @@ public class HDialog extends BaseDialog {
     private void init(Context context, BuilderOptions options) {
         mBuilderOptions = options;
         gravity(options.gravity);
+        setCancelable(mBuilderOptions.cancelable);
         setCanceledOnTouchOutside(mBuilderOptions.isOutside);
         mRootView = LayoutInflater.from(context).inflate(R.layout.item_dialog_layout, null);
         initView();
@@ -229,6 +230,10 @@ public class HDialog extends BaseDialog {
             return this;
         }
 
+        public Builder cancelable(boolean cancelable){
+            mBuilderOptions.cancelable = cancelable;
+            return this;
+        }
 
         public Builder view(View view) {
             mBuilderOptions.view = view;

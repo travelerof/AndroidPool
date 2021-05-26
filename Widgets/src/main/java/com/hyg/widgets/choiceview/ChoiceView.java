@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.IntDef;
 
+import com.hyg.hlog.HLog;
 import com.hyg.utils.DensityUtils;
 import com.hyg.widgets.R;
 

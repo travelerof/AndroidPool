@@ -11,12 +11,20 @@ import org.json.JSONObject;
 /**
  * @Author 韩永刚
  * @Date 2021/05/14
- * @Desc
+ * @Desc 日志打印
  */
 public final class HLog {
-
+    /**
+     * 默认tag
+     */
     private static final String TAG = HLog.class.getSimpleName();
+    /**
+     * 打印json开始
+     */
     private static final String START_LINE = "╔═══════════════════════════════════════════════════════════════════════════════════════";
+    /**
+     * 打印json结束
+     */
     private static final String END_LINE = "╚═══════════════════════════════════════════════════════════════════════════════════════";
     private static final String CENTER = "║ ";
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");

@@ -7,4 +7,6 @@
     <color name="color_warn">#3700B3</color>
     <color name="color_error">#f83702</color>
     <color name="color_cccccc">#cccccc</color>
+    <color name="color_e5e5e5">#e5e5e5</color>
+    <color name="white">@android:color/white</color>
 </resources>

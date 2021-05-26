@@ -18,6 +18,7 @@ final class BuilderOptions {
      * 是否允许点击外部关闭
      */
     public boolean isOutside = true;
+    public boolean cancelable = true;
     public int gravity  = Gravity.CENTER;
     public int background = R.drawable.shape_dialog_default_bg;
     public CharSequence titleText;

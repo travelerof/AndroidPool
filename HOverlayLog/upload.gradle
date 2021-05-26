@@ -15,7 +15,7 @@ afterEvaluate {module ->
         repositories{
             mavenDeployer{
                 pom.project{
-                    version '0.0.1'
+                    version '0.0.2'
                     artifactId 'overlaylog'
                     groupId 'com.hyg.overlaylog'
                     packaging 'aar'
