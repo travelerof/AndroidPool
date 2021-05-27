@@ -1,5 +1,6 @@
 package com.hyg.hpermission.request;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
@@ -30,6 +31,7 @@ abstract class HRequest implements IRequest, IRequestCallback {
      * 当前批次申请完成回调
      */
     protected OnRequestListener mOnRequestListener;
+    private RequestPermissionFragment mRequestPermissionFragment;
 
     public HRequest(@NonNull Context context, @NonNull RequestOptions options) {
         mContext = context;
@@ -84,7 +86,8 @@ abstract class HRequest implements IRequest, IRequestCallback {
         if (activity == null) {
             return;
         }
-        RequestPermissionFragment.beginFragment(this, mOptions.requestType, mOptions.requestCode, permissions).attach(activity);
+        mRequestPermissionFragment = RequestPermissionFragment.beginFragment(this, mOptions.requestType, mOptions.requestCode, permissions);
+        mRequestPermissionFragment.attach(activity);
     }
 
     @NonNull
@@ -118,5 +121,12 @@ abstract class HRequest implements IRequest, IRequestCallback {
     @Override
     public void addOnRequestListener(OnRequestListener onRequestListener) {
         mOnRequestListener = onRequestListener;
+    }
+
+    @Override
+    public void close() {
+        if (mRequestPermissionFragment != null) {
+            mRequestPermissionFragment.detach();
+        }
     }
 }

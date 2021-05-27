@@ -22,4 +22,6 @@ interface IRequest {
      * @return
      */
     String getTag();
+
+    void close();
 }

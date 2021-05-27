@@ -8,6 +8,7 @@ import android.os.Build;
 import android.provider.Settings;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.hyg.hlog.HLog;
 import com.hyg.hpermission.permission.Permission;
@@ -56,6 +57,31 @@ public class HPermissionUtils {
     }
 
     /**
+     * 是否与有修改设置权限
+     * @param context
+     * @return
+     */
+    public static boolean hasWriteSettingsPermission(@NonNull Context context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return Settings.System.canWrite(context);
+        }
+        return true;
+    }
+
+    /**
+     * 检查是否有某个权限
+     *
+     * @param context
+     * @param permission
+     * @return
+     */
+    public static boolean checkedPermission(@NonNull Context context,@NonNull String permission){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return ContextCompat.checkSelfPermission(context,permission) == PackageManager.PERMISSION_GRANTED;
+        }
+        return true;
+    }
+    /**
      * 获取应用名称
      *
      * @param context
@@ -87,6 +113,8 @@ public class HPermissionUtils {
         switch (permission) {
             case Permission.APPLICATION_WINDOW_OVERLAY:
                 return "是否申请“"+appName+"“打开悬浮窗权限?";
+            case Permission.APPLICATION_WRITE_SETTINGS:
+                return "是否申请“"+appName+"“打开修改设置权限?";
             default:
                 return "";
         }
@@ -102,6 +130,8 @@ public class HPermissionUtils {
     public static int getPermissionTitleResId(@NonNull Context context, @Permission String permission){
         switch (permission) {
             case Permission.APPLICATION_WINDOW_OVERLAY:
+                return R.mipmap.ic_overlay;
+            case Permission.APPLICATION_WRITE_SETTINGS:
                 return R.mipmap.ic_overlay;
             default:
                 return -1;

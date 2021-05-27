@@ -40,6 +40,8 @@ class SpecialRequest extends HRequest {
         switch (permission) {
             case Permission.APPLICATION_WINDOW_OVERLAY:
                 return HPermissionUtils.hasOverlayPermission(getContext());
+            case Permission.APPLICATION_WRITE_SETTINGS:
+                return HPermissionUtils.hasWriteSettingsPermission(getContext());
         }
         return false;
     }

@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.hyg.hpermission.permission.PermissionCode.APPLY_OVERLAY_REQUESTCODE;
+import static com.hyg.hpermission.permission.PermissionCode.APPLY_WRITE_SETTINGS_REQUESTCODE;
 
 /**
  * @Author hanyonggang
@@ -118,6 +119,7 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
      * 请求特殊权限
      */
     private void requstSpecialPermission() {
+        removeCurrentPermission();
         if (permissions.size() <= 0) {
             if (mIRequestCallback != null) {
                 mIRequestCallback.onPermissionResult(requestCode, toStringArray(resultPermissions), toIntArray(grantResults));
@@ -162,8 +164,12 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
                 resultPermissions.add(mSpecialPermission);
                 grantResults.add(overlay ? PackageManager.PERMISSION_GRANTED : PackageManager.PERMISSION_DENIED);
                 break;
+            case APPLY_WRITE_SETTINGS_REQUESTCODE:
+                resultPermissions.add(mSpecialPermission);
+                grantResults.add(HPermissionUtils.hasWriteSettingsPermission(getContext()) ? PackageManager.PERMISSION_GRANTED : PackageManager.PERMISSION_DENIED);
+                break;
         }
-        removeCurrentPermission();
+
         requstSpecialPermission();
     }
 
@@ -202,6 +208,18 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         }
     }
 
+    /**
+     * 申请设置权限
+     */
+    private void requestWriteSettingsPermission(){
+        HPermissionUtils.print("跳转系统设置权限页面");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+            intent.setData(Uri.parse("package:"+getContext().getPackageName()));
+            startActivityForResult(intent,APPLY_WRITE_SETTINGS_REQUESTCODE);
+        }
+    }
+
     private String[] toStringArray(List<String> list) {
         return list.toArray(new String[list.size()]);
     }
@@ -229,6 +247,9 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
             case Permission.APPLICATION_WINDOW_OVERLAY:
                 requestOverlayPermission();
                 break;
+            case Permission.APPLICATION_WRITE_SETTINGS:
+                requestWriteSettingsPermission();
+                break;
         }
     }
 
@@ -243,8 +264,6 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         HPermissionUtils.print("拒绝申请特殊权限:"+mSpecialPermission);
         resultPermissions.add(mSpecialPermission);
         grantResults.add(PackageManager.PERMISSION_DENIED);
-        //移除当前权限，并开始请求下一个
-        removeCurrentPermission();
         requstSpecialPermission();
     }
 
@@ -252,8 +271,10 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
      * 申请完当前权限后，移除当前
      */
     private void removeCurrentPermission() {
-        permissions.remove(mSpecialPermission);
-        mSpecialPermission = null;
+        if (mSpecialPermission != null) {
+            permissions.remove(mSpecialPermission);
+            mSpecialPermission = null;
+        }
     }
 
 }

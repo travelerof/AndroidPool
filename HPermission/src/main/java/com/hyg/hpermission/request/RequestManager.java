@@ -22,6 +22,7 @@ public final class RequestManager implements OnRequestListener {
      * 当前请求状态
      */
     private boolean isRequest;
+    private IRequest mReq;
 
     private RequestManager() {
         mRequestQuene = new LinkedBlockingQueue<>();
@@ -64,6 +65,9 @@ public final class RequestManager implements OnRequestListener {
      *
      */
     public void clear() {
+        if (mReq != null) {
+
+        }
         mRequestQuene.clear();
     }
 
@@ -72,14 +76,17 @@ public final class RequestManager implements OnRequestListener {
             return;
         }
         isRequest = true;
-        IRequest req = next();
-        HPermissionUtils.print("执行"+req.getTag());
-        req.request();
+        mReq = next();
+        HPermissionUtils.print("执行"+ mReq.getTag());
+        mReq.request();
     }
 
     @Override
     public void onComplete() {
         isRequest = false;
+        if (mReq != null) {
+            mReq.close();
+        }
         request();
     }
 }
