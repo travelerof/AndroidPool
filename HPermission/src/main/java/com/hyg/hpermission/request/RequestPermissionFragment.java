@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import com.hyg.hpermission.HPermission;
 import com.hyg.hpermission.HPermissionUtils;
 import com.hyg.hpermission.permission.Permission;
 
@@ -23,34 +22,45 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.hyg.hpermission.permission.PermissionCode.APPLY_OVERLAY_REQUESTCODE;
+
 /**
  * @Author hanyonggang
  * @Date 2021/5/22 0022
- * @Desc
+ * @Desc 申请权限的fragment
  */
 public class RequestPermissionFragment extends Fragment implements PermissionDialog.OnPermissionListener {
 
     public static final String TAG = RequestPermissionFragment.class.getSimpleName();
+    /**
+     * 请求类型key
+     */
     public static final String REQUEST_TYPE = "request_type";
+    /**
+     * 权限请求码key
+     */
     public static final String REQUEST_C0DE = "request_code";
+    /**
+     * 需要请求的列表key
+     */
     public static final String ARRAY_PERMISSIONS = "array_permissions";
 
+
     /**
-     * 申请悬浮窗权限
-     */
-    private static final int APPLY_OVERLAY_REQUESTCODE = 1000;
-    /**
-     * 权限申请类型
+     * 权限申请类型{@link RequestType}
      */
     @RequestType
     private int requestType;
+    /**
+     *
+     */
     private int requestCode;
     /**
      * 需要申请的权限列表
      */
     private ArrayList<String> permissions;
     /**
-     * 权限申请完成回调
+     * 权限申请结束回调
      */
     private IRequestCallback mIRequestCallback;
     /**
@@ -65,9 +75,13 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
      * 当前需要申请的权限
      */
     private String mSpecialPermission;
+    /**
+     * 特殊权限dialog
+     */
     private PermissionDialog mDialog;
 
     public static RequestPermissionFragment beginFragment(@NonNull IRequestCallback iRequestCallback, @RequestType int requestType, int requestCode, @NonNull ArrayList<String> permissions) {
+        HPermissionUtils.print("开始绑定Fragment");
         RequestPermissionFragment fragment = new RequestPermissionFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(REQUEST_TYPE, requestType);
@@ -86,7 +100,7 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         requestType = bundle.getInt(REQUEST_TYPE, RequestType.NORMAL_PERMISSION);
         requestCode = bundle.getInt(REQUEST_C0DE, -1);
         permissions = bundle.getStringArrayList(ARRAY_PERMISSIONS);
-        if (permissions != null && permissions.size() > 0) {
+        if (permissions != null && permissions.size() > 0) {//权限列表不为空，请求
             requestPermission();
         }
     }
@@ -96,6 +110,7 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
             requstSpecialPermission();
             return;
         }
+        HPermissionUtils.print("请求普通权限");
         requestPermissions(toStringArray(permissions), requestCode);
     }
 
@@ -112,11 +127,15 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         }
         initDialog();
         mSpecialPermission = permissions.get(0);
-        mDialog.setMessage(HPermissionUtils.getPermissionDescript(getContext(),mSpecialPermission));
-        mDialog.setTitle(HPermissionUtils.getPermissionTitleResId(getContext(),mSpecialPermission));
+        mDialog.setMessage(HPermissionUtils.getPermissionDescript(getContext(), mSpecialPermission));
+        mDialog.setTitle(HPermissionUtils.getPermissionTitleResId(getContext(), mSpecialPermission));
         mDialog.show();
+        HPermissionUtils.print("特殊权限="+mSpecialPermission);
     }
 
+    /**
+     * 初始化特殊权限dialog
+     */
     private void initDialog() {
         if (mDialog == null) {
             mDialog = new PermissionDialog(getActivity());
@@ -138,7 +157,7 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
             return;
         }
         switch (resultCode) {
-            case APPLY_OVERLAY_REQUESTCODE:
+            case APPLY_OVERLAY_REQUESTCODE://悬浮窗权限结果
                 boolean overlay = HPermissionUtils.hasOverlayPermission(getContext());
                 resultPermissions.add(mSpecialPermission);
                 grantResults.add(overlay ? PackageManager.PERMISSION_GRANTED : PackageManager.PERMISSION_DENIED);
@@ -175,13 +194,11 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
      * 申请悬浮窗权限
      */
     private void requestOverlayPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {//8.0以上
+        HPermissionUtils.print("跳转悬浮窗权限页面");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//6.0以上
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-            startActivityForResult(intent,APPLY_OVERLAY_REQUESTCODE);
-        }else{
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-            intent.setData(Uri.parse("package:"+getContext().getPackageName()));
-            startActivityForResult(intent,APPLY_OVERLAY_REQUESTCODE);
+            intent.setData(Uri.parse("package:" + getContext().getPackageName()));
+            startActivityForResult(intent, APPLY_OVERLAY_REQUESTCODE);
         }
     }
 
@@ -198,9 +215,16 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         return grans;
     }
 
+    /**
+     * 同意申请特殊权限
+     *
+     * @param dialog
+     * @param v
+     */
     @Override
     public void onApply(PermissionDialog dialog, View v) {
         dialog.dismiss();
+        HPermissionUtils.print("允许申请特殊权限:"+mSpecialPermission);
         switch (mSpecialPermission) {
             case Permission.APPLICATION_WINDOW_OVERLAY:
                 requestOverlayPermission();
@@ -208,16 +232,26 @@ public class RequestPermissionFragment extends Fragment implements PermissionDia
         }
     }
 
+    /**
+     * 拒绝申请特殊权限
+     * @param dialog
+     * @param v
+     */
     @Override
     public void onRefuse(PermissionDialog dialog, View v) {
         dialog.dismiss();
+        HPermissionUtils.print("拒绝申请特殊权限:"+mSpecialPermission);
         resultPermissions.add(mSpecialPermission);
         grantResults.add(PackageManager.PERMISSION_DENIED);
+        //移除当前权限，并开始请求下一个
         removeCurrentPermission();
         requstSpecialPermission();
     }
 
-    private void removeCurrentPermission(){
+    /**
+     * 申请完当前权限后，移除当前
+     */
+    private void removeCurrentPermission() {
         permissions.remove(mSpecialPermission);
         mSpecialPermission = null;
     }

@@ -6,6 +6,8 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 
+import com.hyg.hpermission.HPermissionUtils;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ import java.util.List;
 /**
  * @Author hanyonggang
  * @Date 2021/5/22 0022
- * @Desc
+ * @Desc 普通权限申请
  */
 class Request extends HRequest {
     public Request(@NonNull @org.jetbrains.annotations.NotNull Context context, @NonNull @org.jetbrains.annotations.NotNull RequestOptions options) {
@@ -33,8 +35,13 @@ class Request extends HRequest {
                 }
             }
         }
+        HPermissionUtils.print("检查普通权限:size="+applies.isEmpty());
         return applies;
     }
 
 
+    @Override
+    public String getTag() {
+        return "普通权限请求Request";
+    }
 }

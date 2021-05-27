@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 /**
  * @Author hanyonggang
  * @Date 2021/5/22 0022
- * @Desc
+ * @Desc 原始请求完结果
  */
 interface IRequestCallback {
     void onPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults);

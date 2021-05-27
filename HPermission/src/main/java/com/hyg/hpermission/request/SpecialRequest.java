@@ -14,8 +14,8 @@ import java.util.List;
 
 /**
  * @Author hanyonggang
- * @Date 2021/5/22 0022
- * @Desc
+ * @Date 2021/5/22
+ * @Desc 特殊权限申请
  */
 class SpecialRequest extends HRequest {
     public SpecialRequest(@NonNull @NotNull Context context, @NonNull @NotNull RequestOptions options) {
@@ -32,6 +32,7 @@ class SpecialRequest extends HRequest {
                 applies.add(permission);
             }
         }
+        HPermissionUtils.print("检查特殊权限:size="+applies.isEmpty());
         return applies;
     }
 
@@ -41,5 +42,10 @@ class SpecialRequest extends HRequest {
                 return HPermissionUtils.hasOverlayPermission(getContext());
         }
         return false;
+    }
+
+    @Override
+    public String getTag() {
+        return "特殊权限请求Request";
     }
 }

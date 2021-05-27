@@ -13,6 +13,12 @@ import java.lang.annotation.RetentionPolicy;
 @IntDef({RequestType.NORMAL_PERMISSION, RequestType.SPECIAL_PERMISSION})
 @Retention(RetentionPolicy.SOURCE)
 public @interface RequestType {
+    /**
+     * 普通权限，读写，拍照等
+     */
     int NORMAL_PERMISSION = 0;
+    /**
+     * 特殊权限，如悬浮窗，通知等
+     */
     int SPECIAL_PERMISSION = 1;
 }

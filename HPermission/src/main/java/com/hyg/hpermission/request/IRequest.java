@@ -6,7 +6,20 @@ package com.hyg.hpermission.request;
  * @Desc
  */
 interface IRequest {
+    /**
+     * 执行请求
+     */
     void request();
 
+    /**
+     * 请求完成监听
+     * @param onRequestListener
+     */
     void addOnRequestListener(OnRequestListener onRequestListener);
+
+    /**
+     *
+     * @return
+     */
+    String getTag();
 }

@@ -3,12 +3,11 @@ package com.hyg.hpermission.request;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
-import com.hyg.hpermission.permission.Permission;
+import com.hyg.hpermission.HPermissionUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -23,7 +22,13 @@ import java.util.List;
 abstract class HRequest implements IRequest, IRequestCallback {
 
     private final Context mContext;
+    /**
+     * 申请配置
+     */
     protected RequestOptions mOptions;
+    /**
+     * 当前批次申请完成回调
+     */
     protected OnRequestListener mOnRequestListener;
 
     public HRequest(@NonNull Context context, @NonNull RequestOptions options) {
@@ -50,8 +55,12 @@ abstract class HRequest implements IRequest, IRequestCallback {
     }
 
 
+    /**
+     * 发起请求
+     */
     @Override
     public void request() {
+        HPermissionUtils.print("开始执行任务");
         ArrayList<String> applyies = checkedPermission(mOptions.permissions);
         if (applyies.isEmpty()) {
             if (mOptions.mOnPermissionCallback != null) {
@@ -65,6 +74,11 @@ abstract class HRequest implements IRequest, IRequestCallback {
         attach(applyies);
     }
 
+    /**
+     * 开始申请
+     *
+     * @param permissions
+     */
     protected void attach(ArrayList<String> permissions) {
         FragmentActivity activity = getActivity();
         if (activity == null) {

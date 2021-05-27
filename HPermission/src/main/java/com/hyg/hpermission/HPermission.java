@@ -13,9 +13,9 @@ import com.hyg.hpermission.request.RequestBuilder;
 /**
  * @Author hanyonggang
  * @Date 2021/5/22 0022
- * @Desc
+ * @Desc 发起请求
  */
-public class HPermission {
+public final class HPermission {
 
     public HPermission(){
         throw new RuntimeException("Stub!");

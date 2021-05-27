@@ -9,6 +9,7 @@ import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 
+import com.hyg.hlog.HLog;
 import com.hyg.hpermission.permission.Permission;
 
 import java.lang.reflect.Array;
@@ -21,6 +22,24 @@ import java.util.List;
  */
 public class HPermissionUtils {
 
+    public static final String TAG = "Permission";
+    private static final String HEADER = "权限>>>>:";
+
+    /**
+     * 日志打印
+     *
+     * @param message
+     */
+    public static void print(String message) {
+        HLog.v(TAG, HEADER + message);
+    }
+
+    /**
+     * 是否有悬浮窗权限
+     *
+     * @param context
+     * @return
+     */
     public static boolean hasOverlayPermission(@NonNull Context context) {
         int version = Build.VERSION.SDK_INT;
         if (version >= Build.VERSION_CODES.O) {//8.0及以上
