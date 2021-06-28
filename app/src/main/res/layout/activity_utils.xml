@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UtilsActivity">
+    <Button
+        android:id="@+id/utils_compress_bitmap_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="质量压缩"/>
+    <ImageView
+        android:id="@+id/utils_bitmap_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

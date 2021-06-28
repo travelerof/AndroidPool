@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('F:\\Android\\test\\AndroidPool\\keystore\\keystore.jks')
+            storePassword 'hy123456'
+            keyAlias 'key0'
+            keyPassword 'hy123456'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 

@@ -38,7 +38,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':Widgets')
-    implementation 'com.google.android.exoplayer:exoplayer:2.13.2'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.13.2'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.13.2'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.13.2'
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.13.2'
     implementation project(path: ':Basic')
     implementation 'com.hyg.hlog:log:0.0.2'
 }

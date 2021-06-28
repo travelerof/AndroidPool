@@ -7,10 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hyg.hdialog.BaseDialog;
-import com.hyg.hdialog.HDialog;
-import com.hyg.hdialog.OnDialogClickListener;
-import com.hyg.hdialog.OnTextListener;
+import com.hyg.dialog.BaseDialog;
+import com.hyg.dialog.HDialog;
+import com.hyg.dialog.OnDialogClickListener;
+import com.hyg.dialog.OnTextListener;
 import com.hyg.mch.R;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,6 +39,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.dialog_custom_btn:
                 new HDialog.Builder(this)
                         .title("测试标题")
+                        .gravity(Gravity.BOTTOM)
                         .message("测试文本", new OnTextListener() {
                             @Override
                             public void onText(TextView textView) {

@@ -17,11 +17,11 @@ import org.jetbrains.annotations.NotNull;
  * @Date 2021/5/11 0011
  * @Desc
  */
-public class BottomFuncHorizontalProgressController extends AbstractProgressController {
+public class FuncHorizontalProgressController extends AbstractProgressController {
 
     private final View mView;
 
-    public BottomFuncHorizontalProgressController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider) {
+    public FuncHorizontalProgressController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider) {
         super(containerView, operateProvider);
         mView = LayoutInflater.from(mContext).inflate(R.layout.video_bottom_horizontal_layout,null);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);

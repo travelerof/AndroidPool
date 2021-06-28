@@ -25,7 +25,7 @@ import com.hyg.videoui.HConstant;
 import com.hyg.videoui.R;
 import com.hyg.videoui.controller.AbstractController;
 import com.hyg.videoui.controller.AnimationControllerHelper;
-import com.hyg.videoui.controller.BottomFuncController;
+import com.hyg.videoui.controller.FuncController;
 import com.hyg.videoui.controller.GestureController;
 import com.hyg.videoui.controller.LoaddingController;
 import com.hyg.videoui.controller.OnGestureListener;
@@ -54,7 +54,7 @@ public class HVideoView extends FrameLayout implements InteractiveHandler, OnMed
     private RelativeLayout mMiddleLayout;
     private RelativeLayout mTopLayout;
     private TopTitleController mTopTitleController;
-    private BottomFuncController mBottomFuncController;
+    private FuncController mBottomFuncController;
 
     private AnimationControllerHelper mAnimationControllerHelper;
     private GestureController mGestureController;
@@ -107,7 +107,7 @@ public class HVideoView extends FrameLayout implements InteractiveHandler, OnMed
         mTopTitleController = new TopTitleController(mTopLayout, this,direction);
         mAnimationControllerHelper.addController(mTopTitleController);
 
-        mBottomFuncController = new BottomFuncController(mTopLayout, this, direction);
+        mBottomFuncController = new FuncController(mTopLayout, this, direction);
         mAnimationControllerHelper.addController(mBottomFuncController);
     }
 

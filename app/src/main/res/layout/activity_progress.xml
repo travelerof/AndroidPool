@@ -31,6 +31,14 @@
             android:layout_marginTop="20dp"
             app:touch="false"
             app:isPreview="false"/>
+        <com.hyg.widgets.ClockView
+            android:id="@+id/progress_clock_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:defaultColor="#888888"
+            app:clockColor="#ff0000"
+            android:textSize="@dimen/textsize_14"
+            android:textColor="@color/color_333333"/>
     </LinearLayout>
 
 

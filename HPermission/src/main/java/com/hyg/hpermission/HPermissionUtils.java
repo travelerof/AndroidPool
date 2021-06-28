@@ -42,15 +42,7 @@ public class HPermissionUtils {
      * @return
      */
     public static boolean hasOverlayPermission(@NonNull Context context) {
-        int version = Build.VERSION.SDK_INT;
-        if (version >= Build.VERSION_CODES.O) {//8.0及以上
-            AppOpsManager appOpsMgr = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-            if (appOpsMgr == null)
-                return false;
-            int mode = appOpsMgr.checkOpNoThrow("android:system_alert_window", android.os.Process.myUid(), context
-                    .getPackageName());
-            return mode == AppOpsManager.MODE_ALLOWED || mode == AppOpsManager.MODE_IGNORED;
-        }else if (version >= Build.VERSION_CODES.M){//6.0及以上
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){//6.0及以上
             return Settings.canDrawOverlays(context);
         }
         return true;

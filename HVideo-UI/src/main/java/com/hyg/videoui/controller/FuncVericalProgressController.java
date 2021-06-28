@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
  * @Date 2021/5/11 0011
  * @Desc
  */
-public class BottomFuncVericalProgressController extends AbstractProgressController {
+public class FuncVericalProgressController extends AbstractProgressController {
 
     private final View mView;
     private ImageView mIvPlay;
@@ -31,7 +31,7 @@ public class BottomFuncVericalProgressController extends AbstractProgressControl
     private TextView mTvTotalTime;
     private ImageView mIvScreen;
 
-    public BottomFuncVericalProgressController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider) {
+    public FuncVericalProgressController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider) {
         super(containerView, operateProvider);
         mView = LayoutInflater.from(mContext).inflate(R.layout.video_bottom_vertical_layout,null);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, mContext.getResources().getDimensionPixelSize(R.dimen.dimen_45));

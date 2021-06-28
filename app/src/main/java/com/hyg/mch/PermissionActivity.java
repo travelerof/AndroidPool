@@ -56,7 +56,7 @@ public class PermissionActivity extends AppCompatActivity {
                 })
                 .request();
         HPermission.with(this)
-                .permission(Permission.APPLICATION_WINDOW_OVERLAY)
+                .permission(Permission.APPLICATION_WINDOW_OVERLAY,Permission.APPLICATION_WRITE_SETTINGS)
                 .requestCode(123)
                 .requestType(RequestType.SPECIAL_PERMISSION)
                 .callBack(new OnPermissionCallback() {

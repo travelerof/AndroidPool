@@ -82,4 +82,10 @@
             <enum name="both" value="3"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="ClockView">
+        <attr name="android:textSize"/>
+        <attr name="android:textColor"/>
+        <attr name="defaultColor" format="color"/>
+        <attr name="clockColor" format="color"/>
+    </declare-styleable>
 </resources>

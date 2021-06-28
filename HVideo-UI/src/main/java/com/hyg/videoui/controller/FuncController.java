@@ -24,9 +24,9 @@ import java.util.TimerTask;
  * @Date 2021/5/10 0010
  * @Desc
  */
-public class BottomFuncController extends AbstractAnimationController {
+public class FuncController extends AbstractAnimationController {
 
-    private static final String TAG = BottomFuncController.class.getSimpleName();
+    private static final String TAG = FuncController.class.getSimpleName();
 
     private int mViewHeight;
     private final RelativeLayout mBottomLayout;
@@ -39,7 +39,7 @@ public class BottomFuncController extends AbstractAnimationController {
     private Timer mTimer;
     private TimerTask mTimerTask;
     private boolean isTimer;
-    public BottomFuncController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider, @Direction int direction) {
+    public FuncController(@NonNull @NotNull ViewGroup containerView, @NonNull @NotNull InteractiveHandler operateProvider, @Direction int direction) {
         super(containerView, operateProvider);
         this.direction = direction;
         View view = LayoutInflater.from(mContext).inflate(R.layout.video_bottom_func_layout, null);
@@ -54,10 +54,10 @@ public class BottomFuncController extends AbstractAnimationController {
 
         if (direction == Direction.HORIZONTAL) {
             //初始化横向时底部菜单
-            mController = new BottomFuncHorizontalProgressController(mBottomLayout, mInteractiveHandler);
+            mController = new FuncHorizontalProgressController(mBottomLayout, mInteractiveHandler);
         } else {
             //初始化纵向时底部菜单
-            mController = new BottomFuncVericalProgressController(mBottomLayout, mInteractiveHandler);
+            mController = new FuncVericalProgressController(mBottomLayout, mInteractiveHandler);
         }
 
     }

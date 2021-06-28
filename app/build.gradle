@@ -12,7 +12,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,11 +43,11 @@ dependencies {
     implementation project(path: ':Crash')
     implementation project(path: ':HVideo')
     implementation project(path: ':Basic')
-    implementation 'com.hyg.hdialog:dialog:0.0.1'
+    implementation project(path: ':HPermission')
+    implementation project(path: ':HDialog')
     implementation project(path: ':HVideo-UI')
-    implementation 'com.hyg.hpermission:permission:0.0.1'
     implementation 'com.hyg.hlog:log:0.0.2'
-    implementation 'com.hyg.overlaylog:overlaylog:0.0.2'
+    implementation project(path: ':HOverlayLog')
     implementation 'com.github.bumptech.glide:glide:4.5.0'
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
 

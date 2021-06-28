@@ -1,4 +1,4 @@
-package com.hyg.hdialog;
+package com.hyg.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

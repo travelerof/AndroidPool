@@ -75,14 +75,8 @@ public class LogDataManager {
     private void checked() {
         if (logData.size() > MAX_SIZE) {
             int endIndex = logData.size() - MAX_SIZE;
-            if (endIndex < 0) {
-                endIndex = 0;
-            }
             List<LogModel> logs = logData.subList(0, endIndex);
-            clear();
-            if (logs != null) {
-                logData.addAll(logs);
-            }
+            logData.removeAll(logs);
         }
     }
 

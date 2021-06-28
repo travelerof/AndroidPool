@@ -1,9 +1,10 @@
-package com.hyg.hdialog;
+package com.hyg.dialog;
 
 import android.content.DialogInterface;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
+
 
 /**
  * @Author 韩永刚

@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
+import com.hyg.hlog.HLog;
 import com.hyg.videoui.widget.InteractiveHandler;
 
 import org.jetbrains.annotations.NotNull;
@@ -15,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * @Author hanyonggang
  * @Date 2021/5/12
- * @Desc
+ * @Desc 手势控制
  */
 public class GestureController extends AbstractController {
 
@@ -40,7 +41,14 @@ public class GestureController extends AbstractController {
 
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            HLog.i("mytest","====onScroll======");
             return super.onScroll(e1, e2, distanceX, distanceY);
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            HLog.i("mytest","====onFling======");
+            return super.onFling(e1, e2, velocityX, velocityY);
         }
     };
     private GestureDetector mGestureDetector;
